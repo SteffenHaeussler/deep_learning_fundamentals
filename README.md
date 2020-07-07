@@ -2,6 +2,8 @@
 
 This is intended as a basic knowledge repository on deep learning. Since the
 technological progess moves one, sometimes it is helpful too look up basics.
+Especially in Deep Learning this is useful, since the mathematical principles stay the same, while the architectures increase in complexity.
+
 Here I try to develop some simple understanding with code samples to the fundamentals
 of deep learning.
 
