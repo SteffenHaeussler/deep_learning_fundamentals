@@ -12,10 +12,13 @@ of deep learning.
 
 Currently, the following modules have been implemented:
 
-- [activation functions](https://github.com/SteffenHaeussler/deep_learning_fundamentals/activation.ipynb)
+- [activation functions](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/activation_functions.ipynb)
+- [NN class implementation](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/building_classes_for_nn.ipynb)
 
-- [manual linear regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/manual_linear_regression.ipynb)
-- [neural network regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/neural_network_regression.ipynb)
+
+Only useful for general understanding:
+- [manual linear regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/manual_linear_regression.ipynb)
+- [neural network regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/neural_network_regression.ipynb)
 
 
 
