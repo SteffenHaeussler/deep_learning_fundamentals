@@ -16,8 +16,13 @@ Currently, the following modules have been implemented:
 - [NN class implementation](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/building_classes_for_nn.ipynb)
 
 
-Only useful for general understanding:
-- [manual linear regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/manual_linear_regression.ipynb)
+Code samples for a simple linear regression with Keras and PyTorch:
+
+- [simple regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/simple_regression.ipynb)
+
+
+
+Only useful for general understanding - with copy and paste from DL from scratch repo:
 - [neural network regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/neural_network_regression.ipynb)
 
 
