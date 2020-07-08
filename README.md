@@ -8,19 +8,24 @@ Here I try to develop some simple understanding with code samples to the fundame
 of deep learning.
 
 
-# Available Notebooks
+## Available Notebooks
+
+
+### Basic understanding
 
 Currently, the following modules have been implemented:
 
 - [activation functions](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/activation_functions.ipynb)
 - [NN class implementation](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/building_classes_for_nn.ipynb)
 
+### Code samples for Keras/Tensorflow and PyTorch
 
 Code samples for a simple linear regression with Keras and PyTorch:
 
 - [simple regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/simple_regression.ipynb)
 
 
+### gibberish
 
 Only useful for general understanding - with copy and paste from DL from scratch repo:
 - [neural network regression](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/neural_network_regression.ipynb)
