@@ -1,11 +1,9 @@
 # Deep Learning fundamentals
 
-This is intended as a basic knowledge repository on deep learning. Since the
-technological progess moves one, sometimes it is helpful too look up basics.
-Especially in Deep Learning this is useful, since the mathematical principles stay the same, while the architectures increase in complexity.
-
-Here I try to develop some simple understanding with code samples to the fundamentals
-of deep learning.
+This repo is intended as a personal basic knowledge collection on deep learning.
+After two years of mostly engineering I figured out, that I forgot some basics.
+Since the fundamentals of deep learning aren't that hard to understand, I looked for an easy way
+to refresh my knowledge.
 
 
 ## Available Notebooks
