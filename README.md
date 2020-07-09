@@ -3,8 +3,7 @@
 This repo is intended as a personal basic knowledge collection on deep learning.
 After two years of mostly engineering I figured out, that I forgot some basics.
 Since the fundamentals of deep learning aren't that hard to understand, I looked for an easy way
-to refresh my knowledge.
-
+to refresh my knowledge. Since this repo is about my personal learning progress, I don't focus too much on style guide and proper formulations. Therefor is enough learning material in the links below and I don't intend to copy books, write a thesis and so on. For me this is intended as a personal refernece book, which hopefully will grow over the next years.
 
 ## Available Notebooks
 
