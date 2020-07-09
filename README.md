@@ -15,6 +15,7 @@ Currently, the following modules have been implemented:
 
 - [activation functions](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/activation_functions.ipynb)
 - [NN class implementation](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/building_classes_for_nn.ipynb)
+- [optimizer](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/optimizers.ipynb)
 
 ### Code samples for Keras/Tensorflow and PyTorch
 
