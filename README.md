@@ -1,9 +1,10 @@
 # Deep Learning fundamentals
 
 This repo is intended as a personal basic knowledge collection on deep learning.
-After two years of mostly engineering I figured out, that I forgot some basics.
-Since the fundamentals of deep learning aren't that hard to understand, I looked for an easy way
-to refresh my knowledge. Since this repo is about my personal learning progress, I don't focus too much on style guide and proper formulations. Therefor is enough learning material in the links below and I don't intend to copy books, write a thesis and so on. For me this is intended as a personal refernece book, which hopefully will grow over the next years.
+After two years of mostly engineering I figured out, that I forgot some basics. So the idea came
+to build up personal reference notebooks. Also it should prevent stupid architectural decisions, because of a lack of understanding (e.g. correct application of batch normalization - i saw a lot of bad implementations). So they won't capture a complete topic like in text books,
+ but more single parts, which are interesting to me. So simplification is to a certain point intended.
+Also my hope is, that this repo will grow over the next years.
 
 ## Available Notebooks
 
@@ -12,7 +13,7 @@ to refresh my knowledge. Since this repo is about my personal learning progress,
 
 Currently, the following modules have been implemented:
 
-- [activation functions](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/activation_functions.ipynb)
+- [activation and regularization functions](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/activation_functions_and_regularization.ipynb)
 - [NN class implementation](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/building_classes_for_nn.ipynb)
 - [optimizer](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/optimizers.ipynb)
 
