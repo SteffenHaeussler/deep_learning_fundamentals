@@ -71,6 +71,17 @@ class ParamOperation(Operation):
         raise NotImplementedError()
 
 
+class Flatten(Operation):
+    def __init__(self):
+        super().__init__()
+
+    def _output(self) -> ndarray:
+        return self.input_.reshape(self.input_.shape[0], -1)
+
+    def _input_grad(self, output_grad: ndarray) -> ndarray:
+        return output_grad.reshape(self.input_.shape)
+
+
 class WeightMultiply(ParamOperation):
     """Weight multiplication for a neural network"""
 

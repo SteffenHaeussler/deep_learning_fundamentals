@@ -124,7 +124,7 @@ class Trainer:
         Fits the neural network on the training data
         Every "eval_every" epochs, it evaluated the neural network on the validation data.
         """
-        setattr(self.optim, 'max_epochs', epochs)
+        setattr(self.optim, "max_epochs", epochs)
         self.optim._setup_decay()
 
         np.random.seed(seed)
@@ -153,9 +153,7 @@ class Trainer:
                 train_preds = self.net.forward(X_train)
                 train_loss = self.net.loss.forward(train_preds, y_train)
 
-                self.history.append({"val_loss": val_loss,
-                                     "train_loss": train_loss})
-
+                self.history.append({"val_loss": val_loss, "train_loss": train_loss})
 
             if (e + 1) % eval_every == 0:
 

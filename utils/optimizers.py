@@ -9,13 +9,45 @@ class Optimizer:
     Base class for an optimizer.
     """
 
-    def __init__(self, lr: float = 0.01):
+    def __init__(self, lr: float = 0.01, final_lr: float = 0.0, decay_type: str = None):
 
         self.lr = lr
+        self.final_lr = final_lr
+        self.decay_type = decay_type
+        self.first = True
 
-    def step(self) -> None:
+    def _setup_decay(self) -> None:
 
-        pass
+        if not self.decay_type:
+            return None
+
+        elif self.decay_type == "linear":
+            self.decay_per_epoch = (self.lr - self.final_lr) / (self.max_epochs - 1)
+
+        elif self.decay_type == "exponential":
+            self.decay_per_epoch = np.power(
+                self.final_lr / self.lr, 1.0 / (self.max_epochs - 1)
+            )
+
+    def _decay_lr(self) -> None:
+
+        if not self.decay_type:
+            return None
+
+        elif self.decay_type == "linear":
+            self.lr -= self.decay_per_epoch
+
+        elif self.decay_type == "exponential":
+            self.lr *= self.decay_per_epoch
+
+    def step(self, epoch: int = 0) -> None:
+
+        for (param, param_grad) in zip(self.net.params(), self.net.param_grads()):
+
+            self._update_rule(param=param, grad=param_grad)
+
+    def _update_rule(self, **kwargs) -> None:
+        raise NotImplementedError()
 
 
 class SGD(Optimizer):
@@ -41,10 +73,13 @@ class SGDMomentum(Optimizer):
     Stochasitc gradient descent optimizer with momentum.
     """
 
-    def __init__(self, lr: float = 0.01,
-                 final_lr: float = 0,
-                 decay_type: str = None,
-                momentum = 0.9) -> None:
+    def __init__(
+        self,
+        lr: float = 0.01,
+        final_lr: float = 0,
+        decay_type: str = None,
+        momentum=0.9,
+    ) -> None:
 
         super().__init__(lr, final_lr, decay_type)
         self.momentum = momentum
@@ -54,22 +89,23 @@ class SGDMomentum(Optimizer):
         Update each parameter ased on the learning rate.
         """
         if self.first:
-            self.velocities = [np.zeros_like(param)
-                               for param in self.net.params()]
+            self.velocities = [np.zeros_like(param) for param in self.net.params()]
             self.first = False
 
-        for (param, param_grad, velocity) in zip(self.net.params(), self.net.param_grads(), self.velocities):
+        for (param, param_grad, velocity) in zip(
+            self.net.params(), self.net.param_grads(), self.velocities
+        ):
 
             self._update_rule(param=param, grad=param_grad, velocity=velocity)
 
     def _update_rule(self, **kwargs) -> None:
 
-            # Update velocity
-            kwargs['velocity'] *= self.momentum
-            kwargs['velocity'] += self.lr * kwargs['grad']
+        # Update velocity
+        kwargs["velocity"] *= self.momentum
+        kwargs["velocity"] += self.lr * kwargs["grad"]
 
-            # Use this to update parameters
-            kwargs['param'] -= kwargs['velocity']
+        # Use this to update parameters
+        kwargs["param"] -= kwargs["velocity"]
 
 
 class Loss:
@@ -134,3 +170,32 @@ class MeanSquaredError(Loss):
         calculates the loss gradient with respect to the input of the mse loss
         """
         return 2.0 * (self.prediction - self.target) / self.prediction.shape[0]
+
+
+# TODO: proper implementation - this is copy/paste
+class SoftmaxCrossEntropy(Loss):
+    def __init__(self, eps: float = 1e-9) -> None:
+
+        super().__init__()
+        self.eps = eps
+
+    def _output(self) -> float:
+
+        if self.target.shape[1] == 0:
+            raise NotImplementedError()
+
+        softmax_preds = softmax(self.prediction, axis=1)
+
+        # clipping the softmax output to prevent numeric instability
+        self.softmax_preds = np.clip(softmax_preds, self.eps, 1 - self.eps)
+
+        # actual loss computation
+        softmax_cross_entropy_loss = -1.0 * self.target * np.log(self.softmax_preds) - (
+            1.0 - self.target
+        ) * np.log(1 - self.softmax_preds)
+
+        return np.sum(softmax_cross_entropy_loss) / self.prediction.shape[0]
+
+    def _input_grad(self) -> ndarray:
+
+        return (self.softmax_preds - self.target) / self.prediction.shape[0]

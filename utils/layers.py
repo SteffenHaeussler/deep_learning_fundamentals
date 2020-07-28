@@ -99,3 +99,44 @@ class Dense(Layer):
         ]
 
         return None
+
+
+class Conv2D(Layer):
+
+    def __init__(self, out_channels: int, param_size: int, activation: Operation = Sigmoid(),
+                 flatten: bool = False) -> None:
+        """requires an activation function upon initialization"""
+
+        super().__init__(out_channels)
+
+        self.activation = activation
+        self.flatten = flatten
+
+        self.param_size = param_size
+        self.out_channels = out_channels
+
+
+    def _setup_layer(self, input_: ndarray) -> None:
+        """
+        defines options for a fully connected layer
+        """
+        if self.seed:
+            np.random.seed(self.seed)
+
+        self.params = []
+
+        conv_param = np.random.normal(loc=0,
+                                      size=(input_.shape[1],  # input channels
+                                            self.out_channels,
+                                            self.param_size,
+                                            self.param_size))
+
+        self.params.append(conv_param)
+
+        self.operations.append(Conv2D_Op(conv_param))
+        self.operations.append(self.activation)
+
+        if self.flatten:
+            self.operations.append(Flatten())
+
+        return None

@@ -18,14 +18,12 @@ def assert_same_shape(array: ndarray, array_grad: ndarray):
     return None
 
 
-def to_2d_np(a: ndarray,
-          type: str="col") -> ndarray:
-    '''
+def to_2d_np(a: ndarray, type: str = "col") -> ndarray:
+    """
     Turns a 1D Tensor into 2D
-    '''
+    """
 
-    assert a.ndim == 1, \
-    "Input tensors must be 1 dimensional"
+    assert a.ndim == 1, "Input tensors must be 1 dimensional"
 
     if type == "col":
         return a.reshape(-1, 1)
@@ -36,4 +34,3 @@ def to_2d_np(a: ndarray,
 def permute_data(X, y):
     perm = np.random.permutation(X.shape[0])
     return X[perm], y[perm]
-
