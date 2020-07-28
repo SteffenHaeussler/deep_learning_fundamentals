@@ -12,6 +12,7 @@ The intention is to have a start and that this repo will grow over the next year
 Currently, the following modules have been implemented:
 
 - [activation and regularization functions](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/activation_functions_and_regularization.ipynb)
+- [convolution](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/cnn.ipynb)
 - [NN class implementation](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/building_classes_for_nn.ipynb)
 - [optimizer](https://github.com/SteffenHaeussler/deep_learning_fundamentals/blob/master/optimizers.ipynb)
 
