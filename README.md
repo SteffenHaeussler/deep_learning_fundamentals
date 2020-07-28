@@ -1,10 +1,8 @@
 # Deep Learning fundamentals
 
 This repo is intended as a personal basic knowledge collection on deep learning.
-After two years of mostly engineering I figured out, that I forgot some basics. So the idea came
-to build up personal reference notebooks. Also it should prevent stupid architectural decisions, because of a lack of understanding (e.g. correct application of batch normalization - i saw a lot of bad implementations). So they won't capture a complete topic like in text books,
- but more single parts, which are interesting to me. So simplification is to a certain point intended.
-Also my hope is, that this repo will grow over the next years.
+I like to understand stuff from the basics, so my idea is to build up personal reference notebooks for different aspects of deep learning. I mainly follow [Deep Learning from Scratch - Weidman 2019](https://www.oreilly.com/library/view/deep-learning-from/9781492041405/). Even the code looks the same, I never did copy & paste. I followed the textbook examples line by line to get an understanding, how everything works together. In case I went the easy step, I marked it in the code as a comment.
+The intention is to have a start and that this repo will grow over the next years.
 
 ## Available Notebooks
 
